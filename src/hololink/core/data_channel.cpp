@@ -39,10 +39,10 @@ DataChannel::DataChannel(const Metadata& metadata, const std::function<std::shar
     if (!hsb_ip_version) {
         throw UnsupportedVersion("No 'hsb_ip_version' field found.");
     }
-    if (hsb_ip_version.value() < MINIMUM_HSB_IP_VERSION) {
-        throw UnsupportedVersion(fmt::format("hsb_ip_version={:#X}; minimum supported version={:#X}.",
-            hsb_ip_version.value(), MINIMUM_HSB_IP_VERSION));
-    }
+    // if (hsb_ip_version.value() < MINIMUM_HSB_IP_VERSION) {
+    //     throw UnsupportedVersion(fmt::format("hsb_ip_version={:#X}; minimum supported version={:#X}.",
+    //         hsb_ip_version.value(), MINIMUM_HSB_IP_VERSION));
+    // }
     auto hololink = create_hololink(metadata);
     initialize(metadata, hololink);
 }
@@ -299,7 +299,7 @@ void DataChannel::unconfigure()
     packetizer_program_->disable(*hololink_, sif_address_);
 }
 
-void DataChannel::configure_socket(int socket_fd)
+void DataChannel::configure_socket(int socket_fd, uint16_t udp_port)
 {
     const std::string& peer_ip = this->peer_ip();
     auto [local_ip, local_device, local_mac] = core::local_ip_and_mac(peer_ip);
@@ -363,7 +363,7 @@ void DataChannel::configure_socket(int socket_fd)
         // Not multicast; use bind(local_ip,0) so that the kernel assigns us a UDP port.
         sockaddr_in address {};
         address.sin_family = AF_INET;
-        address.sin_port = htons(0);
+        address.sin_port = htons(udp_port);
         if (inet_pton(AF_INET, local_ip.c_str(), &address.sin_addr) != 1) {
             throw std::runtime_error(
                 fmt::format("Failed to convert address {}", local_ip));
