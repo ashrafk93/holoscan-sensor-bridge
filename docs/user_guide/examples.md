@@ -91,6 +91,18 @@ lastly, running SIPL accelerated network python example on AGX Thor:
 $ python3 ./examples/sipl_player.py --json-config ./examples/sipl_config/vb1940_single.json
 ```
 
+## Realsense D555 player example
+
+This example is similar to the IMX274 player example above, using Realsense D555
+camera instead of IMX274. To run the high-speed video player with Li Realsense D555, in
+the demo container with a ConnectX accelerated network controller,
+
+```sh
+$ python3 examples/linux_d555_player.py
+$ python3 examples/linux_d555_dual_stream.py
+$ python3 examples/linux_d555_peoplenet.py
+```
+
 ## Running the TAO PeopleNet example
 
 The tao-peoplenet example demonstrates running inference on a live video feed.
