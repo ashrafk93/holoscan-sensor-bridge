@@ -39,10 +39,10 @@ DataChannel::DataChannel(const Metadata& metadata, const std::function<std::shar
     if (!hsb_ip_version) {
         throw UnsupportedVersion("No 'hsb_ip_version' field found.");
     }
-    // if (hsb_ip_version.value() < MINIMUM_HSB_IP_VERSION) {
-    //     throw UnsupportedVersion(fmt::format("hsb_ip_version={:#X}; minimum supported version={:#X}.",
-    //         hsb_ip_version.value(), MINIMUM_HSB_IP_VERSION));
-    // }
+    if (hsb_ip_version.value() < MINIMUM_HSB_IP_VERSION) {
+        throw UnsupportedVersion(fmt::format("hsb_ip_version={:#X}; minimum supported version={:#X}.",
+            hsb_ip_version.value(), MINIMUM_HSB_IP_VERSION));
+    }
     auto hololink = create_hololink(metadata);
     initialize(metadata, hololink);
 }
