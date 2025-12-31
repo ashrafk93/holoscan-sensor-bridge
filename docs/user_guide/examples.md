@@ -91,10 +91,10 @@ lastly, running SIPL accelerated network python example on AGX Thor:
 $ python3 ./examples/sipl_player.py --json-config ./examples/sipl_config/vb1940_single.json
 ```
 
-## Realsense D555 player example
+## RealSense D555 player example
 
 This example is similar to the IMX274 player example above, using Realsense D555
-camera instead of IMX274. To run the high-speed video player with Li Realsense D555, in
+camera instead of IMX274. To run the high-speed video player with Realsense D555, in
 the demo container with a ConnectX accelerated network controller,
 
 ```sh
@@ -116,9 +116,9 @@ $ hololink-enumerate
 The output should display information similar to:
 
 ```
-mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2412 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
-mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2412 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
-mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2412 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
+mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2501 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
+mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2501 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
+mac_id=98:4F:EE:1A:F4:A9 hsb_ip_version=0x2501 fpga_crc=0xffff ip_address=192.168.11.55 fpga_uuid=889b7ce3-65a5-4247-8b05-4ff1904c3359 serial_number=70255f4343534c interface=eno1 board=hololink-lite
 ^C
 ```
 
